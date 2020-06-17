@@ -5,9 +5,15 @@
   "repository": "git@github.com:tsunekyos/webpack-crash-course.git",
   "author": "Kyosuke Tsuneda <k_tsuneda@yumemi.co.jp>",
   "license": "MIT",
+  "scripts" :{
+    "serve": "live-server"
+  },
   "devDependencies": {
     "live-server": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
   }
 }
