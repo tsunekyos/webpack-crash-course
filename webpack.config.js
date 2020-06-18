@@ -17,6 +17,14 @@ module.exports = {
           'css-loader',
         ],
       },
+      {
+        test: /\.(jp?eg|png|gif|svg|ico)$/i,
+        loader: 'url-loader',
+        options: {
+          limit: 2048,
+          name: './images/[name].[ext]',
+        }
+      }
     ],
   },
   devServer: {
