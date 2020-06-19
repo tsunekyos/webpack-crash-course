@@ -16,11 +16,17 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+      },
+      {
         test: /\.s?css$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'sass-loader'
+          'sass-loader',
         ],
       },
       {
@@ -29,17 +35,17 @@ module.exports = {
         options: {
           limit: 2048,
           name: './images/[name].[ext]',
-        }
+        },
       },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
       },
       {
         test: /\.html$/,
         loader: 'html-loader',
-      }
+      },
     ],
   },
   devServer: {
@@ -52,7 +58,7 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',
-    })
+    }),
   ],
   optimization: {
     minimizer: [
@@ -60,11 +66,11 @@ module.exports = {
         uglifyOptions: {
           compress: {
             drop_console: true,
-          }
-        }
+          },
+        },
       }),
-      new OptimizeCSSAssetsPlugin({})
+      new OptimizeCSSAssetsPlugin({}),
     ],
   },
   devtool: 'eval-source-map',
-}
+};
